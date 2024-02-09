@@ -1,8 +1,10 @@
+import { AppRouter } from './router';
+import { AppTheme } from './theme';
 
 export const PianoApp = () => {
   return (
-    <>
-        <h1>PianoApp</h1>
-    </>
+    <AppTheme>
+      <AppRouter />
+    </AppTheme>
   )
 }
