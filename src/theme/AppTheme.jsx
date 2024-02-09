@@ -5,7 +5,7 @@ import { mainTheme } from './';
 
 export const AppTheme = ({ children }) => {
   return (
-    <ThemeProvider Theme={ mainTheme }>
+    <ThemeProvider theme={ mainTheme }>
         <CssBaseline />
         { children }
     </ThemeProvider>
