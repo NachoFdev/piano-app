@@ -4,6 +4,7 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
 
 
+
 function HideOnScroll(props) {
   const { children, window } = props;
 
@@ -19,20 +20,26 @@ function HideOnScroll(props) {
 }
 
 
+
+
+
 export const NavBar = (props) => {
   return (
-    <HideOnScroll {...props}>
-      <AppBar
-        position='fixed'
-        sx={{  }}
-      >
-        <Toolbar>
-          <IconButton>
-            <MenuOutlined />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-
-    </HideOnScroll>
+    <>
+      <HideOnScroll {...props}>
+        <AppBar
+          position='fixed'
+          sx={{  }}
+        >
+          <Toolbar>
+            <IconButton>
+              <MenuOutlined />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
+      
+    </>
+    
   );
 };
