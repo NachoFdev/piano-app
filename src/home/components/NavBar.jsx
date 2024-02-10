@@ -1,7 +1,18 @@
+import { AppBar, IconButton, Toolbar } from '@mui/material';
+import { MenuOutlined } from '@mui/icons-material';
 
 
 export const NavBar = () => {
   return (
-    <h1>NavBar</h1>
+    <AppBar
+      position='fixed'
+      sx={{  }}
+    >
+      <Toolbar>
+        <IconButton>
+          <MenuOutlined />
+        </IconButton>
+      </Toolbar>
+    </AppBar>
   );
 };
