@@ -1,7 +1,12 @@
-import { AppBar, Box, Button, Drawer, Grid, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from '@mui/material';
+import React from 'react';
+import { AppBar, Box, Button, Drawer, Grid, IconButton, List, ListItem, ListItemButton, ListItemText, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
 import { MenuOutlined } from '@mui/icons-material';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
+import MenuIcon from '@mui/icons-material/Menu';
+
+
+const pages = ['Products', 'Pricing', 'Blog'];
 
 
 
@@ -22,8 +27,19 @@ function HideOnScroll(props) {
 
 
 
-
 export const NavBar = (props) => {
+
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+
   return (
     <>
       <HideOnScroll {...props}>
@@ -32,25 +48,54 @@ export const NavBar = (props) => {
         >
           <Toolbar>
 
-            <IconButton
-              sx={{ display: { sm: 'none' } }}
-            >
-              <MenuOutlined />
-            </IconButton>
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: 'block', sm: 'none' },
+                }}
+              >
+                {pages.map((page) => (
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
 
-            <List sx={{ display: 'flex', direction: 'row' }}>
-              {
-                ['Inicio', 'Beneficios', 'Metodología', 'Contacto'].map( text => (
-                  <ListItem key={ text } disablePadding>
-                    <ListItemButton>
-                      
-                      <ListItemText primary={ text } />
-                      
-                    </ListItemButton>
-                  </ListItem>
-                ))
-              }
-            </List>
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
+            {pages.map((page) => (
+              <Button
+                key={page}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                {page}
+              </Button>
+              ))}
+            </Box>
 
 
           </Toolbar>
