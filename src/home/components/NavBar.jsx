@@ -1,4 +1,4 @@
-import { AppBar, IconButton, Toolbar } from '@mui/material';
+import { AppBar, Box, Button, Drawer, Grid, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from '@mui/material';
 import { MenuOutlined } from '@mui/icons-material';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
@@ -29,12 +29,30 @@ export const NavBar = (props) => {
       <HideOnScroll {...props}>
         <AppBar
           position='fixed'
-          sx={{  }}
         >
           <Toolbar>
-            <IconButton>
+
+            <IconButton
+              sx={{ display: { sm: 'none' } }}
+            >
               <MenuOutlined />
             </IconButton>
+
+            <List sx={{ display: 'flex', direction: 'row' }}>
+              {
+                ['Inicio', 'Beneficios', 'Metodología', 'Contacto'].map( text => (
+                  <ListItem key={ text } disablePadding>
+                    <ListItemButton>
+                      
+                      <ListItemText primary={ text } />
+                      
+                    </ListItemButton>
+                  </ListItem>
+                ))
+              }
+            </List>
+
+
           </Toolbar>
         </AppBar>
       </HideOnScroll>
