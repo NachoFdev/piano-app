@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { AppBar, Box, Button, Drawer, Grid, IconButton, List, ListItem, ListItemButton, ListItemText, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
 import { MenuOutlined } from '@mui/icons-material';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
@@ -29,7 +29,7 @@ function HideOnScroll(props) {
 
 export const NavBar = (props) => {
 
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -85,12 +85,19 @@ export const NavBar = (props) => {
               </Menu>
             </Box>
 
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
+            <Box 
+              sx={{ flexGrow: 1,
+                    display: { xs: 'none',
+                               sm: 'flex',
+                               justifyContent: 'center'
+                             }, 
+                  }}
+            >
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 4, mx: 4, color: 'white', display: 'block', fontWeight: 100 }}
               >
                 {page}
               </Button>

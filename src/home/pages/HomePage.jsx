@@ -51,7 +51,10 @@ export const HomePage = (props) => {
 
         <NavBar />
 
-        <Toolbar id="back-to-top-anchor"/>
+        <Toolbar
+          id="back-to-top-anchor"
+          sx={{ my: 3 }}
+        />
 
         <Grid
         container
