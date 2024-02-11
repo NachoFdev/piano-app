@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { HomePage } from '../home/pages';
 import { AuthPage } from '../auth/pages';
-import { LearningView } from '../user/views';
+import { UserLayout } from '../user/layout';
+import { LearningView } from '../user/views/LearningView';
 
 
 export const AppRouter = () => {

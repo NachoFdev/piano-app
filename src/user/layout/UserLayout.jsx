@@ -1,7 +1,14 @@
+import { NavBar } from "../components";
 
 
-export const UserLayout = () => {
+export const UserLayout = ({ children }) => {
   return (
-    <h1>UserLayout</h1>
+    <>
+
+    <NavBar />
+
+      { children }
+    
+    </>
   );
 };
