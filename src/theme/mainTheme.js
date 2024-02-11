@@ -1,15 +1,16 @@
 import { createTheme } from '@mui/material/styles';
+import { grey } from '@mui/material/colors';
 
 
 export const mainTheme = createTheme({
     palette: {
         primary: {
-            lighter: '#9e9e9e',
-            light: '#757575',
-            main: '#616161',
-            dark: '#424242',
-            darker: '#212121',
-            contrastText: '#fafafa'
+            lighter: 'white',
+            light: grey.A100,
+            main: grey.A200,
+            dark: grey.A300,
+            darker: grey.A400,
+            contrastText: '#ffffff'
         },
         secondary: {
             lighter: '#',

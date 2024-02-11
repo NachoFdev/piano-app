@@ -46,18 +46,19 @@ export const NavBar = (props) => {
         <AppBar
           position='fixed'
         >
-          <Toolbar>
+          <Toolbar sx={{ my: 3 }}>
 
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}>
+            <Box sx={{ flexGrow: 1,
+                       display: { xs: 'flex', sm: 'none' } }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                color="inherit"
+                color="black"
               >
-                <MenuIcon />
+                <MenuIcon/>
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -97,7 +98,7 @@ export const NavBar = (props) => {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 4, mx: 4, color: 'white', display: 'block', fontWeight: 100 }}
+                sx={{ mx: 4, color: '#757575', display: 'block' }}
               >
                 {page}
               </Button>
