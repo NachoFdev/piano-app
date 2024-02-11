@@ -3,7 +3,7 @@ import { AppBar, Box, Button, IconButton, Menu, MenuItem, Toolbar, Typography } 
 import MenuIcon from '@mui/icons-material/Menu';
 
 
-const pages = ['Aprendizaje', 'Repaso', 'Repertorio'];
+const pages = ['Aprendizaje', 'Repaso', 'Repertorio', 'Cerrar sesión'];
 
 
 

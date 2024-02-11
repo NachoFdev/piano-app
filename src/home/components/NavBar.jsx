@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import { Link, Link as RouterLink } from 'react-router-dom';
 import { AppBar, Box, Button, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
 import MenuIcon from '@mui/icons-material/Menu';
 
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Inicio', 'Sección 1', 'Sección 2', 'Iniciar sesión'];
 
 
 
@@ -77,11 +78,19 @@ export const NavBar = (props) => {
                   display: { xs: 'block', sm: 'none' },
                 }}
               >
-                {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                ))}
+                
+                <MenuItem onClick={handleCloseNavMenu}>
+                <Typography
+                  noWrap
+                  component={Link}
+                  to="auth"
+                  color="textPrimary"
+                  sx={{ textDecoration: 'none' }}
+                  >
+                  Iniciar sesión
+                </Typography>
+                </MenuItem>
+                
               </Menu>
             </Box>
 
