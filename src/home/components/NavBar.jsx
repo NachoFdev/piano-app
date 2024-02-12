@@ -87,7 +87,7 @@ export const NavBar = (props) => {
                     color="textPrimary"
                     sx={{ textDecoration: 'none' }}
                     >
-                    Iniciar sesión
+                      Iniciar sesión
                   </Typography>
                 </MenuItem>
                 
@@ -102,15 +102,15 @@ export const NavBar = (props) => {
                              }, 
                   }}
             >
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ mx: 4, color: '#757575', display: 'block' }}
-              >
-                {page}
-              </Button>
-              ))}
+              <Typography
+                noWrap
+                component={Link}
+                to="auth"
+                color="textPrimary"
+                sx={{ textDecoration: 'none' }}
+                >
+                  Iniciar sesión
+              </Typography>
             </Box>
 
 

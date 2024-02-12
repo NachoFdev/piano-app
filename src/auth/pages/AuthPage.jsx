@@ -46,7 +46,7 @@ export const AuthPage = () => {
 
 
   const { status, errorMessage } = useSelector( state => state.auth );
-  const isAuthenticating = useMemo( () => status === 'checking', [status] );
+  const isAuthenticating = useMemo( () => status === 'checking', [status, errorMessage] );
 
 
   const dispatch = useDispatch();
@@ -171,7 +171,7 @@ export const AuthPage = () => {
                 component={ RouterLink }
                 color="inherit"
               >
-                ¿No estás inscrito?
+                Volver
               </Link>
             </Grid>
 
