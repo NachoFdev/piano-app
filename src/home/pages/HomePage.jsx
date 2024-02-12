@@ -47,7 +47,10 @@ function ScrollTop(props) {
 export const HomePage = (props) => {
   return (
     <>
-      <Grid container>
+      <Grid
+        container
+        className="animate__animated animate__fadeIn animate__faster"
+      >
 
         <NavBar />
 
