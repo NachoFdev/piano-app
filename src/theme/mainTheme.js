@@ -1,5 +1,6 @@
 import { createTheme } from '@mui/material/styles';
-import { grey } from '@mui/material/colors';
+import { grey, red } from '@mui/material/colors';
+
 
 
 export const mainTheme = createTheme({
@@ -21,12 +22,12 @@ export const mainTheme = createTheme({
             contrastText: '#'
         },
         error: {
-            lighter: '#',
-            light: '#',
-            main: '#',
-            dark: '#',
-            darker: '#',
-            contrastText: '#'
+            lighter: '#ffcdd2',
+            light: '#ef9a9a',
+            main: '#e57373',
+            dark: '#ef5350',
+            darker: '#f44336',
+            contrastText: '#ffffff'
         },
         warning: {
             lighter: '#',

@@ -1,7 +1,11 @@
+import { useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom';
-import { Button, Grid, Link, TextField, Typography } from '@mui/material';
+import { Alert, Button, Grid, Link, TextField, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { grey } from '@mui/material/colors';
+import { grey, red } from '@mui/material/colors';
+import { useForm } from '../../hooks/useForm';
+import { startLoginWithEmailPassword } from '../../store/auth';
 
 
 
@@ -36,7 +40,29 @@ const ColorButton = styled(Button)(({ theme }) => ({
 
 
 
+
+
 export const AuthPage = () => {
+
+
+  const { status, errorMessage } = useSelector( state => state.auth );
+  const isAuthenticating = useMemo( () => status === 'checking', [status] );
+
+
+  const dispatch = useDispatch();
+  const { email, password, onInputChange } = useForm({
+    email: 'nacho@mail.com',
+    password: '123456'
+  });
+
+
+  const onSubmitForm = ( event ) => {
+    event.preventDefault();
+    console.log({ email, password });
+    dispatch( startLoginWithEmailPassword({ email, password }) );
+  }
+
+
   return (
     <Grid
       container
@@ -66,72 +92,93 @@ export const AuthPage = () => {
           Inicio de sesión
         </Typography>
 
-        <Grid container>
+        <form onSubmit={ onSubmitForm }>
 
-          <Grid
-            item
-            xs={ 12 }
-            sx={{ mt: 2 }}
-          >
+          <Grid container>
 
-            <CssTextField
-              label="Correo"
-              type="email"
-              placeholder="usuario@dominio.com"
-              fullWidth
-              color="secondary"
-               
-            />
-
-          </Grid>
-
-          <Grid 
-            item
-            xs={ 12 }
-            sx={{ mt: 2 }}
-          >
-            <CssTextField
-              label="Contraseña"
-              type="password"
-              placeholder="********"
-              fullWidth
-            />
-          </Grid>
-
-          <Grid
-            container
-            spacing={ 2 }
-            sx={{ mt: 1, mb: 2 }}
-          >
             <Grid
               item
               xs={ 12 }
+              sx={{ mt: 2 }}
             >
-              <ColorButton
-                variant="contained"
-                color="secondary"
+
+              <CssTextField
+                label="Correo"
+                type="email"
+                placeholder="usuario@dominio.com"
                 fullWidth
-              >
-                Enviar
-              </ColorButton>
+                color="secondary"
+                name="email"
+                value={ email }
+                onChange={ onInputChange }
+              />
+
             </Grid>
-          </Grid>
 
-          <Grid
-            container
-            direction="row"
-            justifyContent="end"
-          >
-            <Link
-              to="/"
-              component={ RouterLink }
-              color="inherit"
+            <Grid 
+              item
+              xs={ 12 }
+              sx={{ mt: 2 }}
             >
-              ¿No estás inscrito?
-            </Link>
-          </Grid>
+              <CssTextField
+                label="Contraseña"
+                type="password"
+                placeholder="********"
+                fullWidth
+                name="password"
+                value={ password }
+                onChange={ onInputChange }
+              />
+            </Grid>
 
-        </Grid>
+            <Grid
+              container
+              spacing={ 2 }
+              sx={{ mt: 1, mb: 2 }}
+            >
+
+              <Grid
+                item
+                xs={ 12 }
+                display={ !!errorMessage ? '' : 'none' }
+              >
+                <Alert severity='error'>
+                  Credenciales incorrectas
+                </Alert>
+              </Grid>
+
+              <Grid item xs={ 12 }>
+
+                <ColorButton
+                  disabled={ isAuthenticating }
+                  type="submit"
+                  variant="contained"
+                  color="secondary"
+                  fullWidth
+                >
+                  Enviar
+                </ColorButton>
+              </Grid>
+            </Grid>
+
+            <Grid
+              container
+              direction="row"
+              justifyContent="end"
+            >
+              <Link
+                to="/"
+                component={ RouterLink }
+                color="inherit"
+              >
+                ¿No estás inscrito?
+              </Link>
+            </Grid>
+
+          </Grid>
+        
+        </form>
+
 
       </Grid>
 

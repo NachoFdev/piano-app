@@ -1,7 +1,12 @@
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { AuthPage } from '../pages';
 
 
 export const AuthRoutes = () => {
   return (
-    <h1>AuthRoutes</h1>
+    <Routes>
+      <Route path="login" element={ <AuthPage /> }/>
+      <Route path="/*" element={ <Navigate to="/auth/login" /> } />
+    </Routes>
   );
 };

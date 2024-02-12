@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { AppBar, Box, Button, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { startLogout } from '../../store/auth';
+import { Link } from 'react-router-dom';
 
 
 const pages = ['Aprendizaje', 'Repaso', 'Repertorio', 'Cerrar sesión'];
@@ -8,6 +11,14 @@ const pages = ['Aprendizaje', 'Repaso', 'Repertorio', 'Cerrar sesión'];
 
 
 export const NavBar = () => {
+
+
+  const dispatch = useDispatch();
+
+  const onLogout = () => {
+    dispatch( startLogout() );
+  };
+
 
   const [anchorElNav, setAnchorElNav] = useState(null);
 
@@ -57,11 +68,18 @@ export const NavBar = () => {
               display: { xs: 'block', sm: 'none' },
             }}
           >
-            {pages.map((page) => (
-              <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">{page}</Typography>
-              </MenuItem>
-            ))}
+            <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography
+                    onClick={ onLogout }
+                    noWrap
+                    component={Link}
+                    to="auth"
+                    color="textPrimary"
+                    sx={{ textDecoration: 'none' }}
+                    >
+                    Cerrar sesión
+                  </Typography>
+                </MenuItem>
           </Menu>
         </Box>
 

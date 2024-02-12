@@ -80,15 +80,15 @@ export const NavBar = (props) => {
               >
                 
                 <MenuItem onClick={handleCloseNavMenu}>
-                <Typography
-                  noWrap
-                  component={Link}
-                  to="auth"
-                  color="textPrimary"
-                  sx={{ textDecoration: 'none' }}
-                  >
-                  Iniciar sesión
-                </Typography>
+                  <Typography
+                    noWrap
+                    component={Link}
+                    to="auth"
+                    color="textPrimary"
+                    sx={{ textDecoration: 'none' }}
+                    >
+                    Iniciar sesión
+                  </Typography>
                 </MenuItem>
                 
               </Menu>

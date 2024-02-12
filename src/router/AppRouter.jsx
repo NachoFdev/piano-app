@@ -1,17 +1,35 @@
-import { Route, Routes } from 'react-router-dom';
-import { HomePage } from '../home/pages';
-import { AuthPage } from '../auth/pages';
-import { UserLayout } from '../user/layout';
-import { LearningView } from '../user/views/LearningView';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { useCheckAuth } from '../hooks';
+import { LoadPage } from '../global/components';
+import { UserRoutes } from '../user/routes/UserRoutes';
+import { HomeRoutes } from '../home/routes/HomeRoutes';
 
 
 export const AppRouter = () => {
+
+  const status = useCheckAuth();
+
+  if ( status === 'checking' ) {
+    return <LoadPage />
+  }
+
   return (
+
     <Routes>
-      <Route index element={<HomePage />}/>
-      <Route path="/home" element={<HomePage />}/>
-      <Route path="/auth" element={<AuthPage />}/>
-      <Route path="/user" element={<LearningView />}/>
+
+      {
+        ( status === 'authenticated' )
+        ? <Route path="/user/*" element={ <UserRoutes /> }/>
+        : <Route path="/*" element={ <HomeRoutes /> }/>
+      }
+      <Route path="/*" element={ <Navigate to="/user/learning" /> } />
+
+
+      {/* <Route path="/*" element={ <Navigate to="/home" /> } /> */}
+      {/* <Route index element={<HomePage />}/> */}
+      {/* <Route path="/" element={<HomePage />}/>
+      <Route path="/auth/*" element={<AuthRoutes />}/>
+      <Route path="/user/*" element={<UserRoutes />}/> */}
     </Routes>
   );
 };
