@@ -14,12 +14,12 @@ export const mainTheme = createTheme({
             contrastText: '#ffffff'
         },
         secondary: {
-            lighter: '#',
-            light: '#',
-            main: '#',
-            dark: '#',
-            darker: '#',
-            contrastText: '#'
+            lighter: 'white',
+            light: grey.A100,
+            main: grey.A200,
+            dark: grey.A300,
+            darker: grey.A400,
+            contrastText: '#ffffff'
         },
         error: {
             lighter: '#ffcdd2',
@@ -30,28 +30,28 @@ export const mainTheme = createTheme({
             contrastText: '#ffffff'
         },
         warning: {
-            lighter: '#',
-            light: '#',
-            main: '#',
-            dark: '#',
-            darker: '#',
-            contrastText: '#'
+            lighter: 'white',
+            light: grey.A100,
+            main: grey.A200,
+            dark: grey.A300,
+            darker: grey.A400,
+            contrastText: '#ffffff'
         },
         info: {
-            lighter: '#',
-            light: '#',
-            main: '#',
-            dark: '#',
-            darker: '#',
-            contrastText: '#'
+            lighter: 'white',
+            light: grey.A100,
+            main: grey.A200,
+            dark: grey.A300,
+            darker: grey.A400,
+            contrastText: '#ffffff'
         },
         success: {
-            lighter: '#',
-            light: '#',
-            main: '#',
-            dark: '#',
-            darker: '#',
-            contrastText: '#'
+            lighter: 'white',
+            light: grey.A100,
+            main: grey.A200,
+            dark: grey.A300,
+            darker: grey.A400,
+            contrastText: '#ffffff'
         },
     },
 });

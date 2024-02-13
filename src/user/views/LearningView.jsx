@@ -4,8 +4,9 @@ import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Fade from '@mui/material/Fade';
-import { NavBar } from '../components';
+import { NavBar, PieceList } from '../components';
 import { UserLayout } from '../layout';
+
 
 
 function ScrollTop(props) {
@@ -62,9 +63,7 @@ export const LearningView = (props) => {
         sx={{ p: 2, flexGrow: 1 }}
         >
 
-          <Typography sx={{ height: 1000 }}>
-            Hola soy Aprendizaje
-          </Typography>
+          <PieceList />
 
         </Grid>
 
