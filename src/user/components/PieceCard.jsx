@@ -3,7 +3,7 @@ import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/m
 
 export const PieceCard = ({ id, title, type, unit }) => {
 
-  const pieceImg = `/assets/images/${ id }.jpg`;
+  const pieceImg = `/piano-app/images/${ id }.jpg`;
 
   return (
     <Card sx={{ display: 'flex',

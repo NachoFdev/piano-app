@@ -1,4 +1,4 @@
-import { Grid, Toolbar, Typography } from '@mui/material';
+import { Grid, Toolbar } from '@mui/material';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
