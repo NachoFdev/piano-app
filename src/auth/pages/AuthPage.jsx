@@ -168,7 +168,7 @@ export const AuthPage = () => {
               justifyContent="end"
             >
               <Link
-                to="/"
+                to="/piano-app"
                 component={ RouterLink }
                 color="inherit"
               >

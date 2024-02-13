@@ -6,7 +6,7 @@ export const AuthRoutes = () => {
   return (
     <Routes>
       <Route path="login" element={ <AuthPage /> }/>
-      <Route path="/*" element={ <Navigate to="/auth/login" /> } />
+      <Route path="/*" element={ <Navigate to="/piano-app/auth/login" /> } />
     </Routes>
   );
 };

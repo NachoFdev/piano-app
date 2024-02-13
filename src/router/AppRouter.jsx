@@ -19,10 +19,11 @@ export const AppRouter = () => {
 
       {
         ( status === 'authenticated' )
-        ? <Route path="/user/*" element={ <UserRoutes /> }/>
-        : <Route path="/*" element={ <HomeRoutes /> }/>
+        ? <Route path="/piano-app/user/*" element={ <UserRoutes /> }/>
+        : <Route path="/piano-app/*" element={ <HomeRoutes /> }/>
       }
-      <Route path="/*" element={ <Navigate to="/user/learning" /> } />
+      <Route path="/piano-app/*" element={ <Navigate to="/piano-app/user/learning" /> } />
+      <Route path="/*" element={ <Navigate to="/piano-app" /> } />
 
 
       {/* <Route path="/*" element={ <Navigate to="/home" /> } /> */}

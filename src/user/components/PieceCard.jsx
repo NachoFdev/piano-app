@@ -1,10 +1,9 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
 
 
 export const PieceCard = ({ id, title, type, unit }) => {
 
-  const pieceImg = `/images/${ id }.jpg`;
+  const pieceImg = `/piano-app/images/${ id }.jpg`;
 
   return (
     
@@ -16,7 +15,7 @@ export const PieceCard = ({ id, title, type, unit }) => {
 
       
         <CardActionArea
-          href={ `/user/learning/piece/${ id }` }
+          href={ `/piano-app/user/learning/piece/${ id }` }
         >
           <CardMedia
             component="img"

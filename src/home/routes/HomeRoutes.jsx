@@ -8,7 +8,7 @@ export const HomeRoutes = () => {
     <Routes>
       <Route path="/" element={ <HomePage /> }/>
       <Route path="/auth/*" element={ <AuthRoutes /> }/>
-      <Route path="/*" element={ <Navigate to="/" /> } />
+      <Route path="/*" element={ <Navigate to="/piano-app" /> } />
     </Routes>
   );
 };
