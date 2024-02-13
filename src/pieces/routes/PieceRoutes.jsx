@@ -1,12 +1,12 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { UdView } from '../views/UdView';
+import { PieceView } from '../views/PieceView';
 
 
 export const PieceRoutes = () => {
   return (
     <Routes>
-      <Route path="piece" element={ <UdView /> }/>
-      <Route path="/*" element={ <Navigate to="/user/learning/piece" /> } />
+      <Route path="piece/:id" element={ <PieceView /> }/>
+      <Route path="/*" element={ <Navigate to="/user/learning" /> } />
     </Routes>
   );
 };

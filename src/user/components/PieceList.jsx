@@ -20,10 +20,8 @@ export const PieceList = () => {
               display="flex"
               justifyContent="center"
               margin={4}
-              
               maxWidth={{ xs: 300 }}
               xs={12} sm={6} md={4}
-              sx={{border: 'solid'}}
               
               key={ piece.id }
             >
