@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardMedia, Divider, Drawer, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
@@ -76,6 +77,26 @@ export const DrawerBar = ({ piece }) => {
 
           </Card>
         </Toolbar>
+
+        <Divider />
+
+        <Grid container
+          justifyContent="center"
+          alignItems="center"
+          minHeight={50}
+        >
+
+          <Link 
+            to="/user/learning"
+            className="text-decoration"
+          >
+            <Typography color="black">
+              Volver
+            </Typography>
+          </Link>
+
+        </Grid>
+
 
         <Divider />
 

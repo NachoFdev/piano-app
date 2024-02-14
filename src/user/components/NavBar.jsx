@@ -106,7 +106,7 @@ export const NavBar = () => {
         </Box>
         
         <Box>
-          <Typography>
+          <Typography color="black">
             { email }
           </Typography>
         </Box>
