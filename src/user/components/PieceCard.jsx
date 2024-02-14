@@ -1,4 +1,5 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
+import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 export const PieceCard = ({ id, title, type, unit }) => {
@@ -14,27 +15,33 @@ export const PieceCard = ({ id, title, type, unit }) => {
     >
 
       
-        <CardActionArea
-          href={ `/piano-app/user/learning/piece/${ id }` }
+        <Grid container
+          justifyContent="center"
         >
-          <CardMedia
-            component="img"
-            height="140"
-            image={ pieceImg }
-            alt={ title }
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              { title }
-            </Typography>
-            <Typography sx={{fontFamily: 'Monospace',letterSpacing: 6, lineHeight: 2, fontWeight: 'bold'}} variant="body2" color="text.secondary">
-              Tipo { type.toLowerCase() }
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Unidad { unit.toLowerCase() }
-            </Typography>
-          </CardContent>
-        </CardActionArea>
+          <Link
+            to={ `/piano-app/user/learning/piece/${ id }` }
+            className="text-decoration"
+          >
+            <CardMedia
+              component="img"
+              height="140"
+              image={ pieceImg }
+              alt={ title }
+            />
+            <CardContent>
+                <Typography gutterBottom variant="h5" component="div" color="black">
+                  { title }
+                </Typography>
+              
+              <Typography sx={{fontFamily: 'Monospace',letterSpacing: 6, lineHeight: 2, fontWeight: 'bold'}} variant="body2" color="text.secondary">
+                Tipo { type.toLowerCase() }
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Unidad { unit.toLowerCase() }
+              </Typography>
+            </CardContent>
+          </Link>
+        </Grid>
 
     </Card>
     

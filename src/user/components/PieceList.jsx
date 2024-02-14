@@ -10,7 +10,6 @@ export const PieceList = () => {
     
       <Grid 
         container
-        display="flex"
         justifyContent="center"
       >
         {
