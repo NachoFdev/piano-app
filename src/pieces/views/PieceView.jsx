@@ -9,7 +9,7 @@ export const PieceView = () => {
         component="main"
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
     >
-      <Toolbar />
+      
       <Typography paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non

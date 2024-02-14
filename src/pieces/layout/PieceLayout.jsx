@@ -7,12 +7,9 @@ import { PieceView } from '../views/PieceView';
 import { getPieceById } from '../helpers/getPieceById';
 
 
-const drawerWidth = 280;
-
 
 
 export const PieceLayout = () => {
-
 
   const { id } = useParams();
   const piece = getPieceById( id );
@@ -28,13 +25,10 @@ export const PieceLayout = () => {
       sx={{ display: 'flex' }}
       className="animate__animated animate__fadeIn animate__faster"
     >
-      
-      <NavBar
-        drawerWidth={ drawerWidth }
+
+      <DrawerBar
         piece={ piece }
       />
-
-      <DrawerBar drawerWidth={ drawerWidth } />
       
       <PieceView />
 
