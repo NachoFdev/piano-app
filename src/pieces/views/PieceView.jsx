@@ -1,8 +1,9 @@
 import { Box, Typography } from '@mui/material';
 
 
-export const PieceView = ({ piece }) => {
+export const PieceView = ({ piece, ud }) => {
 
+  console.log(ud);
 
   return (
     <Box
@@ -10,7 +11,17 @@ export const PieceView = ({ piece }) => {
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
     >
 
-      
+      <Typography variant="h5" paragraph>
+        { ud.intro }
+      </Typography>
+
+      <Typography variant="h5" paragraph>
+        { ud.description }
+      </Typography>
+
+      <Typography variant="h5" paragraph>
+        { ud.goals }
+      </Typography>
       
       <Typography paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

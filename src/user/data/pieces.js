@@ -7,27 +7,27 @@ const pieces = [
        'content': [
             {
                 'unit': '1',
-                'intro': 'Introducción de la unidad didáctica 1',
-                'description': 'Descripción de la unidad didáctica 1',
-                'goals': 'Objetivos de la unidad didáctica 1'
+                'intro': 'Introducción de la unidad didáctica 1 del boogie',
+                'description': 'Descripción de la unidad didáctica 1 del boogie',
+                'goals': 'Objetivos de la unidad didáctica 1 del boogie'
             },
             {
                 'unit': '2',
-                'intro': 'Introducción de la unidad didáctica 2',
-                'description': 'Descripción de la unidad didáctica 2',
-                'goals': 'Objetivos de la unidad didáctica 2'
+                'intro': 'Introducción de la unidad didáctica 2 del boogie',
+                'description': 'Descripción de la unidad didáctica 2 del boogie',
+                'goals': 'Objetivos de la unidad didáctica 2 del boogie'
             },
             {
                 'unit': '3',
-                'intro': 'Introducción de la unidad didáctica 3',
-                'description': 'Descripción de la unidad didáctica 3',
-                'goals': 'Objetivos de la unidad didáctica 3'
+                'intro': 'Introducción de la unidad didáctica 3 del boogie',
+                'description': 'Descripción de la unidad didáctica 3 del boogie',
+                'goals': 'Objetivos de la unidad didáctica 3 del boogie'
             },
             {
                 'unit': '4',
-                'intro': 'Introducción de la unidad didáctica 4',
-                'description': 'Descripción de la unidad didáctica 4',
-                'goals': 'Objetivos de la unidad didáctica 4'
+                'intro': 'Introducción de la unidad didáctica 4 del boogie',
+                'description': 'Descripción de la unidad didáctica 4 del boogie',
+                'goals': 'Objetivos de la unidad didáctica 4 del boogie'
             },
        ]
     },
@@ -39,21 +39,21 @@ const pieces = [
         'content': [
             {
                 'unit': '1',
-                'intro': 'Introducción de la unidad didáctica 1',
-                'description': 'Descripción de la unidad didáctica 1',
-                'goals': 'Objetivos de la unidad didáctica 1'
+                'intro': 'Introducción de la unidad didáctica 1 de la ardilla',
+                'description': 'Descripción de la unidad didáctica 1 de la ardilla',
+                'goals': 'Objetivos de la unidad didáctica 1 de la ardilla'
             },
             {
                 'unit': '2',
-                'intro': 'Introducción de la unidad didáctica 2',
-                'description': 'Descripción de la unidad didáctica 2',
-                'goals': 'Objetivos de la unidad didáctica 2'
+                'intro': 'Introducción de la unidad didáctica 2 de la ardilla',
+                'description': 'Descripción de la unidad didáctica 2 de la ardilla',
+                'goals': 'Objetivos de la unidad didáctica 2 de la ardilla'
             },
             {
                 'unit': '3',
-                'intro': 'Introducción de la unidad didáctica 3',
-                'description': 'Descripción de la unidad didáctica 3',
-                'goals': 'Objetivos de la unidad didáctica 3'
+                'intro': 'Introducción de la unidad didáctica 3 de la ardilla',
+                'description': 'Descripción de la unidad didáctica 3 de la ardilla',
+                'goals': 'Objetivos de la unidad didáctica 3 de la ardilla'
             },
        ] 
     },
@@ -65,21 +65,21 @@ const pieces = [
         'content': [
             {
                 'unit': '1',
-                'intro': 'Introducción de la unidad didáctica 1',
-                'description': 'Descripción de la unidad didáctica 1',
-                'goals': 'Objetivos de la unidad didáctica 1'
+                'intro': 'Introducción de la unidad didáctica 1 de Jorge el hipo',
+                'description': 'Descripción de la unidad didáctica 1 de Jorge el hipo',
+                'goals': 'Objetivos de la unidad didáctica 1 de Jorge el hipo'
             },
             {
                 'unit': '2',
-                'intro': 'Introducción de la unidad didáctica 2',
-                'description': 'Descripción de la unidad didáctica 2',
-                'goals': 'Objetivos de la unidad didáctica 2'
+                'intro': 'Introducción de la unidad didáctica 2 de Jorge el hipo',
+                'description': 'Descripción de la unidad didáctica 2 de Jorge el hipo',
+                'goals': 'Objetivos de la unidad didáctica 2 de Jorge el hipo'
             },
             {
                 'unit': '3',
-                'intro': 'Introducción de la unidad didáctica 3',
-                'description': 'Descripción de la unidad didáctica 3',
-                'goals': 'Objetivos de la unidad didáctica 3'
+                'intro': 'Introducción de la unidad didáctica 3 de Jorge el hipo',
+                'description': 'Descripción de la unidad didáctica 3 de Jorge el hipo',
+                'goals': 'Objetivos de la unidad didáctica 3 de Jorge el hipo'
             },
        ] 
     },
@@ -91,21 +91,21 @@ const pieces = [
         'content': [
             {
                 'unit': '1',
-                'intro': 'Introducción de la unidad didáctica 1',
-                'description': 'Descripción de la unidad didáctica 1',
-                'goals': 'Objetivos de la unidad didáctica 1'
+                'intro': 'Introducción de la unidad didáctica 1 de bananas',
+                'description': 'Descripción de la unidad didáctica 1 de bananas',
+                'goals': 'Objetivos de la unidad didáctica 1 de bananas'
             },
             {
                 'unit': '2',
-                'intro': 'Introducción de la unidad didáctica 2',
-                'description': 'Descripción de la unidad didáctica 2',
-                'goals': 'Objetivos de la unidad didáctica 2'
+                'intro': 'Introducción de la unidad didáctica 2 de bananas',
+                'description': 'Descripción de la unidad didáctica 2 de bananas',
+                'goals': 'Objetivos de la unidad didáctica 2 de bananas'
             },
             {
                 'unit': '3',
-                'intro': 'Introducción de la unidad didáctica 3',
-                'description': 'Descripción de la unidad didáctica 3',
-                'goals': 'Objetivos de la unidad didáctica 3'
+                'intro': 'Introducción de la unidad didáctica 3 de bananas',
+                'description': 'Descripción de la unidad didáctica 3 de bananas',
+                'goals': 'Objetivos de la unidad didáctica 3 de bananas'
             },
        ] 
     },
@@ -117,21 +117,21 @@ const pieces = [
         'content': [
             {
                 'unit': '1',
-                'intro': 'Introducción de la unidad didáctica 1',
-                'description': 'Descripción de la unidad didáctica 1',
-                'goals': 'Objetivos de la unidad didáctica 1'
+                'intro': 'Introducción de la unidad didáctica 1 de viaje',
+                'description': 'Descripción de la unidad didáctica 1 de viaje',
+                'goals': 'Objetivos de la unidad didáctica 1 de viaje'
             },
             {
                 'unit': '2',
-                'intro': 'Introducción de la unidad didáctica 2',
-                'description': 'Descripción de la unidad didáctica 2',
-                'goals': 'Objetivos de la unidad didáctica 2'
+                'intro': 'Introducción de la unidad didáctica 2 de viaje',
+                'description': 'Descripción de la unidad didáctica 2 de viaje',
+                'goals': 'Objetivos de la unidad didáctica 2 de viaje'
             },
             {
                 'unit': '3',
-                'intro': 'Introducción de la unidad didáctica 3',
-                'description': 'Descripción de la unidad didáctica 3',
-                'goals': 'Objetivos de la unidad didáctica 3'
+                'intro': 'Introducción de la unidad didáctica 3 de viaje',
+                'description': 'Descripción de la unidad didáctica 3 de viaje',
+                'goals': 'Objetivos de la unidad didáctica 3 de viaje'
             },
        ] 
     },
