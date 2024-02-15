@@ -1,3 +1,4 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, useParams } from 'react-router-dom';
 import Box from '@mui/material/Box';
 
@@ -5,6 +6,9 @@ import { DrawerBar } from '../components/DrawerBar';
 import { PieceView } from '../views/PieceView';
 import { PieceViewPre } from '../views/PieceViewPre';
 import { getPieceById } from '../helpers/getPieceById';
+import { IconButton } from '@mui/material';
+import { AddOutlined } from '@mui/icons-material';
+import { startNewNote } from '../../store/crud/crudThunks';
 
 
 
@@ -25,6 +29,13 @@ export const PieceLayout = () => {
   }
 
 
+  const dispatch = useDispatch();
+  const { isSaving, active } = useSelector( state => state.crud );
+
+  const onClickNewNote = () => {
+    dispatch( startNewNote() );
+  }
+
 
   return (
     <Box 
@@ -34,9 +45,33 @@ export const PieceLayout = () => {
 
       <DrawerBar piece={ piece }/>
 
+      {/* {
+        ( !ud ) 
+          ? <PieceViewPre piece={ piece } />
+          : <PieceView piece={ piece } ud={ teachingUnit }/>
+      } */}
+
       {
-        ( !ud ) ? <PieceViewPre piece={ piece } /> : <PieceView piece={ piece } ud={ teachingUnit }/>
+        ( !!active ) 
+          ? <PieceView piece={ piece } ud={ teachingUnit }/>
+          : <PieceViewPre piece={ piece } />
       }
+
+      <IconButton
+        onClick={ onClickNewNote }
+        size='large'
+        disabled={ isSaving }
+        sx={{
+          color: 'white',
+          backgroundColor: 'error.main',
+          ':hover': { backgroundColor: 'error.main', opacity: 0.9 },
+          position: 'fixed',
+          right: 50,
+          bottom: 50
+        }}
+      >
+        <AddOutlined sx={{ fontSize: 30 }} />
+      </IconButton>
 
     </Box>
   );

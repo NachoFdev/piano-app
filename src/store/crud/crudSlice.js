@@ -3,28 +3,32 @@ import { createSlice } from '@reduxjs/toolkit';
 export const crudSlice = createSlice({
     name: 'crud',
     initialState: {
-        isSaving: true,
+        isSaving: false,
         messageSaved: '',
-        notes: [],
+        uds: [],
         active: null,
     },
     reducers: {
-        addNewEmptyNote: ( state, action ) => {
-
+        savingNewUd: ( state ) => {
+            state.isSaving = true;
         },
-        setActiveNote: ( state, action ) => {
-
+        addNewEmptyUd: ( state, action ) => {
+            state.uds.push( action.payload );
+            state.isSaving = false;
         },
-        setNotes: ( state, action ) => {
+        setActiveUd: ( state, action ) => {
+            state.active = action.payload;
+        },
+        setUds: ( state, action ) => {
 
         },
         setSaving: ( state ) => {
 
         },
-        updateNote: ( state, action ) => {
+        updateUd: ( state, action ) => {
 
         },
-        deleteNoteById: ( state, action ) => {
+        deleteUdById: ( state, action ) => {
 
         }
     }
@@ -32,9 +36,10 @@ export const crudSlice = createSlice({
 
 
 // Action creators are generated for each case reducer function
-export const { addNewEmptyNote,
-               setActiveNote,
-               setNotes,
+export const { savingNewUd,
+               addNewEmptyUd,
+               setActiveUd,
+               setUds,
                setSaving,
-               updateNote,
-               deleteNoteById } = crudSlice.actions;
+               updateUd,
+               deleteUdById } = crudSlice.actions;
