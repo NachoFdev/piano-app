@@ -39,7 +39,10 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 
-
+const formData = {
+  email: 'nacho@mail.com',
+  password: '123456'
+};
 
 
 export const AuthPage = () => {
@@ -50,10 +53,7 @@ export const AuthPage = () => {
 
 
   const dispatch = useDispatch();
-  const { email, password, onInputChange } = useForm({
-    email: 'nacho@mail.com',
-    password: '123456'
-  });
+  const { email, password, onInputChange } = useForm(formData);
 
 
   const onSubmitForm = ( event ) => {

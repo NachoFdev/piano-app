@@ -6,9 +6,6 @@ import { startLogout } from '../../store/auth';
 import { Link } from 'react-router-dom';
 
 
-const pages = ['Aprendizaje', 'Repaso', 'Repertorio', 'Cerrar sesión'];
-
-
 
 export const NavBar = () => {
 
