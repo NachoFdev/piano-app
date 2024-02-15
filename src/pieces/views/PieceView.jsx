@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 
 
-export const PieceView = () => {
+export const PieceView = ({ piece }) => {
 
 
   return (
@@ -9,6 +9,8 @@ export const PieceView = () => {
         component="main"
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
     >
+
+      
       
       <Typography paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

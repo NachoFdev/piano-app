@@ -1,7 +1,6 @@
 import { Navigate, useParams } from 'react-router-dom';
 import Box from '@mui/material/Box';
 
-import { NavBar } from '../components/NavBar';
 import { DrawerBar } from '../components/DrawerBar';
 import { PieceView } from '../views/PieceView';
 import { getPieceById } from '../helpers/getPieceById';
@@ -11,7 +10,8 @@ import { getPieceById } from '../helpers/getPieceById';
 
 export const PieceLayout = () => {
 
-  const { id } = useParams();
+  const { id, ud } = useParams();
+  console.log(ud);
   const piece = getPieceById( id );
 
   if ( !piece ) {
@@ -26,11 +26,9 @@ export const PieceLayout = () => {
       className="animate__animated animate__fadeIn animate__faster"
     >
 
-      <DrawerBar
-        piece={ piece }
-      />
+      <DrawerBar piece={ piece }/>
       
-      <PieceView />
+      <PieceView piece={ piece }/>
 
     </Box>
   );

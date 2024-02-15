@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material';
-
 import pieces from '../data/pieces';
 import { PieceCard } from './';
+
 
 export const PieceList = () => {
 

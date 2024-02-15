@@ -2,7 +2,7 @@ import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 
-export const PieceCard = ({ id, title, type, unit }) => {
+export const PieceCard = ({ id, title, type, section }) => {
 
   const pieceImg = `/piano-app/images/${ id }.jpg`;
 
@@ -37,7 +37,7 @@ export const PieceCard = ({ id, title, type, unit }) => {
                 Tipo { type.toLowerCase() }
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Unidad { unit.toLowerCase() }
+                Unidad { section.toLowerCase() }
               </Typography>
             </CardContent>
           </Link>
