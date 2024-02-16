@@ -1,15 +1,18 @@
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Card, CardContent, CardMedia, Divider, Drawer, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import { Card, CardContent, CardMedia, Divider, Drawer, Grid, List, Toolbar, Typography } from '@mui/material';
+import { DrawerItem } from './DrawerItem';
 
 
             
 
 export const DrawerBar = ({ piece }) => {
 
-  const ud = piece.content.map( ud => ud.unit )
-  console.log(ud);
+
+  const { uds } = useSelector( state => state.crud );
+
+  // const ud = piece.content.map( ud => ud.unit )
+  // console.log(ud);
 
   const pieceImg = `/piano-app/images/${ piece.id }.jpg`;
 
@@ -87,23 +90,8 @@ export const DrawerBar = ({ piece }) => {
         <Divider />
 
         <List>
-          {ud.map(( text, index ) => (
-            <ListItem key={text} disablePadding>
-                {/* <Link
-                  to={ `/piano-app/user/learning/piece/${ piece.id }/${ text }` }
-                  className="text-decoration"
-                > */}
-                  <ListItemButton>
-                    <ListItemIcon>
-                      {index === 0 ? <InboxIcon /> : <MailIcon />}
-                    </ListItemIcon>
-                      <ListItemText >
-                        Unidad didáctica { text }
-                      </ListItemText>
-                  </ListItemButton>
-                
-                {/* </Link> */}
-            </ListItem>
+          {uds.map(( ud, index ) => (
+            <DrawerItem key={ ud.id } { ...ud } index={ index } />
           ))}
         </List>
       </Drawer>

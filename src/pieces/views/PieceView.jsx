@@ -1,94 +1,129 @@
-import { Box, Typography } from '@mui/material';
+import { useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Button, Grid, IconButton, TextField, Typography } from '@mui/material';
+import SaveOutlined from '@mui/icons-material/SaveOutlined';
+import { useForm } from '../../hooks/useForm';
+import { setActiveUd } from '../../store/crud/crudSlice';
+import { startSaveUd, startUploadingFile } from '../../store/crud/crudThunks';
+import UploadOutlined from '@mui/icons-material/UploadOutlined';
+import { VideoDisplay } from '../components/VideoDisplay';
+
 
 
 export const PieceView = ({ piece }) => {
                             // , ud 
-                          
-
   // console.log(ud);
 
+  const dispatch = useDispatch();
+  
+  const { active:ud, messageSaved, isSaving } = useSelector( state => state.crud );
+
+  const { title, body, onInputChange, formState } = useForm( ud );
+
+
+  const fileInputRef = useRef();
+
+
+  useEffect(() => {
+    dispatch( setActiveUd(formState) );
+  }, [formState]);
+
+
+  useEffect(() => {
+    if ( messageSaved.length > 0 ) {
+      Swal.fire('Unidad guardada', messageSaved, 'success');
+    };
+  }, [messageSaved])
+  
+
+
+  const onSaveUd = () => {
+    dispatch( startSaveUd() );
+  };
+
+
+  const onFileInputChange = ({ target }) => {
+    if ( target.files === 0 ) return;
+    dispatch( startUploadingFile( target.files ) );
+  };
+  
+
+
   return (
-    <Box
-        component="main"
-        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
+    <Grid container
+      direction="row"
+      justifyContent="space-between"
+      alignItems="center"
+      sx={{ mb: 1 }}
+      className="animate__animated animate__fadeIn animate__faster"
     >
+      <Grid item>
+        <Typography
+          fontSize={ 39 }
+          fontWeight="light"
+        >
+          Aquí iría la fecha
+        </Typography>
+      </Grid>
 
-      <Typography variant="h5" paragraph>
-        Title
-      </Typography>
+      <input
+        type="file"
+        ref={ fileInputRef }
+        onChange={ onFileInputChange }
+        style={{ display: 'none' }}
+      />
 
-      <Typography variant="h5" paragraph>
-        Body
-      </Typography>
+      <IconButton
+        sx={{ color: 'black' }}
+        disabled={ isSaving }
+        onClick={ () => fileInputRef.current.click() }
+      >
+        <UploadOutlined />
+      </IconButton>
 
-      
-      <Typography paragraph>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-        enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-        imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-        Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-        Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-        adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-        nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-        leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-        feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-        consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-        sapien faucibus et molestie ac.
-      </Typography>
-      <Typography paragraph>
-        Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-        eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-        neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-        tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-        sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-        tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-        gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-        et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-        tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-        eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-        posuere sollicitudin aliquam ultrices sagittis orci a.
-      </Typography>
-      <Typography paragraph>
-        Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-        eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-        neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-        tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-        sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-        tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-        gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-        et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-        tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-        eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-        posuere sollicitudin aliquam ultrices sagittis orci a.
-      </Typography>
-      <Typography paragraph>
-        Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-        eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-        neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-        tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-        sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-        tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-        gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-        et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-        tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-        eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-        posuere sollicitudin aliquam ultrices sagittis orci a.
-      </Typography>
-      <Typography paragraph>
-        Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-        eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-        neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-        tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-        sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-        tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-        gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-        et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-        tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-        eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-        posuere sollicitudin aliquam ultrices sagittis orci a.
-      </Typography>
-    </Box>
+      <Grid item>
+        <Button
+          disabled={ isSaving }
+          onClick={ onSaveUd }
+          sx={{ color: 'black', padding: 2 }}
+        >
+          <SaveOutlined sx={{ fontSize: 30, mr: 1 }} />
+          Guardar
+        </Button>
+      </Grid>
+
+      <Grid container>
+        <TextField
+          type="text"
+          variant="filled"
+          fullWidth
+          placeholder="Escribe el título"
+          label="Título"
+          sx={{ border: 'none', mb: 1 }}
+          name="title"
+          value={ title }
+          onChange={ onInputChange }
+        />
+
+        <TextField
+          type="text"
+          variant="filled"
+          fullWidth
+          placeholder="Escribe el cuerpo del contenido"
+          multiline
+          minRows={ 5 }
+          name="body"
+          value={ body }
+          onChange={ onInputChange }
+        />
+
+        <VideoDisplay video={ ud.videoUrls } />
+
+      </Grid>
+
+    </Grid>
+
+    
     
   );
 };

@@ -9,24 +9,45 @@ export const crudSlice = createSlice({
         active: null,
     },
     reducers: {
+
         savingNewUd: ( state ) => {
             state.isSaving = true;
         },
+
         addNewEmptyUd: ( state, action ) => {
             state.uds.push( action.payload );
             state.isSaving = false;
         },
+
         setActiveUd: ( state, action ) => {
             state.active = action.payload;
+            state.messageSaved = '';
         },
+
         setUds: ( state, action ) => {
-
+            state.uds = action.payload;
         },
+
         setSaving: ( state ) => {
-
+            state.isSaving = true;
+            state.messageSaved = '';
         },
-        updateUd: ( state, action ) => {
 
+        updateUd: ( state, action ) => {
+            state.isSaving = false;
+            state.uds = state.uds.map( ud => {
+
+                if ( ud.id === action.payload.id ) {
+                    return action.payload;
+                };
+                return ud;
+            });
+            state.messageSaved = `${ action.payload.title }, actualizada correctamente`;
+        },
+
+        setVideoToActiveUd: ( state,action ) => {
+            state.active.videoUrls = [ ...state.active.videoUrls, ...action.payload ];
+            state.isSaving = false;
         },
         deleteUdById: ( state, action ) => {
 
@@ -42,4 +63,5 @@ export const { savingNewUd,
                setUds,
                setSaving,
                updateUd,
-               deleteUdById } = crudSlice.actions;
+               deleteUdById,
+               setVideoToActiveUd } = crudSlice.actions;
