@@ -1,9 +1,11 @@
 import { Box, Typography } from '@mui/material';
 
 
-export const PieceView = ({ piece, ud }) => {
+export const PieceView = ({ piece }) => {
+                            // , ud 
+                          
 
-  console.log(ud);
+  // console.log(ud);
 
   return (
     <Box
@@ -12,16 +14,13 @@ export const PieceView = ({ piece, ud }) => {
     >
 
       <Typography variant="h5" paragraph>
-        { ud.intro }
+        Title
       </Typography>
 
       <Typography variant="h5" paragraph>
-        { ud.description }
+        Body
       </Typography>
 
-      <Typography variant="h5" paragraph>
-        { ud.goals }
-      </Typography>
       
       <Typography paragraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

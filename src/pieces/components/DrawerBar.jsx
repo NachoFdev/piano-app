@@ -89,10 +89,10 @@ export const DrawerBar = ({ piece }) => {
         <List>
           {ud.map(( text, index ) => (
             <ListItem key={text} disablePadding>
-                <Link
+                {/* <Link
                   to={ `/piano-app/user/learning/piece/${ piece.id }/${ text }` }
                   className="text-decoration"
-                >
+                > */}
                   <ListItemButton>
                     <ListItemIcon>
                       {index === 0 ? <InboxIcon /> : <MailIcon />}
@@ -102,7 +102,7 @@ export const DrawerBar = ({ piece }) => {
                       </ListItemText>
                   </ListItemButton>
                 
-                </Link>
+                {/* </Link> */}
             </ListItem>
           ))}
         </List>

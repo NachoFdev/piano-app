@@ -14,14 +14,15 @@ import { startNewNote } from '../../store/crud/crudThunks';
 
 export const PieceLayout = () => {
 
-  const { id, ud } = useParams();
-  console.log(ud);
+  const { id
+          // ,ud 
+        } = useParams();
+  // console.log(ud);
   const piece = getPieceById( id );
   
-  const teachingUnits = piece.content;
-  const teachingUnit = teachingUnits.find( tUnit => tUnit.unit === ud );
-  console.log(teachingUnits);
-  // const teachingUnit = getUdByNum( ud );
+  // const teachingUnits = piece.content;
+  // const teachingUnit = teachingUnits.find( tUnit => tUnit.unit === ud );
+  // console.log(teachingUnits);
 
 
   if ( !piece ) {
@@ -52,9 +53,9 @@ export const PieceLayout = () => {
       } */}
 
       {
-        ( !!active ) 
-          ? <PieceView piece={ piece } ud={ teachingUnit }/>
-          : <PieceViewPre piece={ piece } />
+        ( !!active )
+        ? <PieceView piece={ piece } />
+        : <PieceViewPre piece={ piece } />
       }
 
       <IconButton
