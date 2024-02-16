@@ -1,21 +1,23 @@
+import { Grid } from '@mui/material';
+import ReactPlayer from 'react-player';
 
 
 export const VideoDisplay = ({ video }) => {
   return (
-    <div className='vid'>
+    <Grid container
+      
+    >
+      {
+        video?.map( url => (
+
+          <ReactPlayer
+            key={ url }
+            url={ url } 
+            controls
+          />
+        ))
+      }
         
-            {
-                video.map( url => (
-                    <video key={url} loop autoPlay muted>
-                        <source
-                            src={ url }
-                            type="video/mp4"
-                            alt="Video"
-                        />
-                    </video>
-                ))
-            }
-        
-    </div>
+    </Grid>
   );
 };

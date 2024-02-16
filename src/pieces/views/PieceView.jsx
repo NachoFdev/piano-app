@@ -1,12 +1,14 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { Button, Grid, IconButton, TextField, Typography } from '@mui/material';
-import SaveOutlined from '@mui/icons-material/SaveOutlined';
+import { SaveOutlined, UploadOutlined, DeleteOutline } from '@mui/icons-material';
+
 import { useForm } from '../../hooks/useForm';
 import { setActiveUd } from '../../store/crud/crudSlice';
-import { startSaveUd, startUploadingFile } from '../../store/crud/crudThunks';
-import UploadOutlined from '@mui/icons-material/UploadOutlined';
+import { startDeletingUd, startSaveUd, startUploadingFile } from '../../store/crud/crudThunks';
 import { VideoDisplay } from '../components/VideoDisplay';
+
 
 
 
@@ -45,6 +47,11 @@ export const PieceView = ({ piece }) => {
   const onFileInputChange = ({ target }) => {
     if ( target.files === 0 ) return;
     dispatch( startUploadingFile( target.files ) );
+  };
+
+
+  const onDelete = () => {
+    dispatch( startDeletingUd() );
   };
   
 
@@ -116,10 +123,20 @@ export const PieceView = ({ piece }) => {
           value={ body }
           onChange={ onInputChange }
         />
-
-        <VideoDisplay video={ ud.videoUrls } />
-
       </Grid>
+
+      <Grid container justifyContent="end">
+        <Button
+          onClick={ onDelete }
+          sx={{ mt: 2 }}
+          color="error"
+        >
+          <DeleteOutline />
+          Borrar
+        </Button>
+      </Grid>
+
+      <VideoDisplay video={ ud.videoUrls } />
 
     </Grid>
 

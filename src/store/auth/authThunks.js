@@ -1,4 +1,5 @@
 import { loginWithEmailPassword, logoutFirebase } from '../../firebase/providers';
+import { clearUdsLogout } from '../crud/crudSlice';
 import { checkingCredentials, login, logout } from './';
 
 
@@ -22,7 +23,9 @@ export const startLoginWithEmailPassword = ({ email, password }) => {
 
 export const startLogout = () => {
     return async( dispatch ) => {
+
         await logoutFirebase();
+        dispatch( clearUdsLogout() );
         dispatch( logout() );
     };
 };

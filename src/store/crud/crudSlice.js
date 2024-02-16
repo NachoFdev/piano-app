@@ -45,12 +45,21 @@ export const crudSlice = createSlice({
             state.messageSaved = `${ action.payload.title }, actualizada correctamente`;
         },
 
-        setVideoToActiveUd: ( state,action ) => {
+        setVideoToActiveUd: ( state, action ) => {
             state.active.videoUrls = [ ...state.active.videoUrls, ...action.payload ];
             state.isSaving = false;
         },
-        deleteUdById: ( state, action ) => {
 
+        clearUdsLogout: ( state ) => {
+            state.isSaving = false;
+            state.messageSaved = '';
+            state.uds = [];
+            state.active = null;
+        },
+
+        deleteUdById: ( state, action ) => {
+            state.active = null;
+            state.uds = state.uds.filter( ud => ud.id !== action.payload );
         }
     }
 });
@@ -64,4 +73,5 @@ export const { savingNewUd,
                setSaving,
                updateUd,
                deleteUdById,
-               setVideoToActiveUd } = crudSlice.actions;
+               setVideoToActiveUd,
+               clearUdsLogout } = crudSlice.actions;

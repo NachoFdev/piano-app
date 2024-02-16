@@ -1,6 +1,6 @@
-import { collection, doc, setDoc } from 'firebase/firestore/lite';
+import { collection, deleteDoc, doc, setDoc } from 'firebase/firestore/lite';
 import { FirebaseDB } from '../../firebase/config';
-import { addNewEmptyUd, savingNewUd, setActiveUd, setSaving, setUds, setVideoToActiveUd, updateUd } from './crudSlice';
+import { addNewEmptyUd, deleteUdById, savingNewUd, setActiveUd, setSaving, setUds, setVideoToActiveUd, updateUd } from './crudSlice';
 import { loadUds } from '../../helpers/loadUds';
 import { fileUpload } from '../../helpers/fileUpload';
 
@@ -15,7 +15,7 @@ export const startNewNote = () => {
         const newUd = {
             title: '',
             body: ''
-        }
+        };
 
         const newDoc = doc( collection( FirebaseDB, `${ uid }/piece/ud` ) );
         await setDoc( newDoc, newUd );
@@ -74,5 +74,20 @@ export const startUploadingFile = ( files = [] ) => {
         const videosUrl = await Promise.all( fileUploadPromises );
 
         dispatch( setVideoToActiveUd( videosUrl ) );
+    };
+};
+
+
+
+export const startDeletingUd = () => {
+    return async( dispatch, getState ) => {
+
+        const { uid } = getState().auth;
+        const { active:ud } = getState().crud;
+
+        const docRef = doc( FirebaseDB, `${ uid }/piece/ud/${ ud.id }` );
+        await deleteDoc( docRef );
+
+        dispatch( deleteUdById( ud.id ) );
     };
 };
