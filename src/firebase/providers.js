@@ -9,7 +9,7 @@ export const loginWithEmailPassword = async({ email, password }) => {
         const { uid, photoURL, displayName } = resp.user;
         return {
             ok: true,
-            uid, photoURL, displayName
+            uid, photoURL, displayName, email
         };
 
     } catch (error) {
