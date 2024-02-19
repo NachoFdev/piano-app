@@ -44,8 +44,12 @@ export const PieceView = ({ piece }) => {
   };
 
 
+  // 
   const onFileInputChange = ({ target }) => {
+    // El target son los archivos seleccionados. Filelist{ 0: File, 1: File, ... }
     if ( target.files === 0 ) return;
+    // Si abrimos el selector y lo cancelamos
+    
     dispatch( startUploadingFile( target.files ) );
   };
 

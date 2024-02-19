@@ -14,7 +14,9 @@ export const startNewNote = () => {
 
         const newUd = {
             title: '',
-            body: ''
+            body: '',
+            videoUrls: [],
+            index: 0
         };
 
         const newDoc = doc( collection( FirebaseDB, `${ uid }/piece/ud` ) );
@@ -65,15 +67,15 @@ export const startUploadingFile = ( files = [] ) => {
     return async( dispatch ) => {
         dispatch( setSaving() );
         
-        // const videoUrl = await fileUpload( files[0] );
+        const videoUrl = await fileUpload( files );
 
-        const fileUploadPromises = [];
-        for ( const file of files ) {
-            fileUploadPromises.push( fileUpload( file ) );
-        };
-        const videosUrl = await Promise.all( fileUploadPromises );
-
-        dispatch( setVideoToActiveUd( videosUrl ) );
+        // const fileUploadPromises = [];
+        // for ( const file of files ) {
+        //     fileUploadPromises.push( fileUpload( file ) );
+        // };
+        // const videosUrl = await Promise.all( fileUploadPromises );
+        
+        dispatch( setVideoToActiveUd( videoUrl ) );
     };
 };
 

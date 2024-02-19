@@ -46,7 +46,7 @@ export const crudSlice = createSlice({
         },
 
         setVideoToActiveUd: ( state, action ) => {
-            state.active.videoUrls = [ ...state.active.videoUrls, ...action.payload ];
+            state.active.videoUrls = [ ...state.active.videoUrls, action.payload ];
             state.isSaving = false;
         },
 
