@@ -98,15 +98,28 @@ export const startDeletingUd = () => {
         console.log(ud.videoUrls);
 
         // Borra el archivo subido al storaje, si se ha cargado previamnete
-        if ( ud.videoUrls[0] ) {
-            const videoUrl = ud.videoUrls[0]
-            console.log(videoUrl);
+        // if ( ud.videoUrls[0] ) {
+        //     const videoUrl = ud.videoUrls[0]
+        //     console.log(videoUrl);
             
-            const videoId = extraerIdentificador( videoUrl );
-            console.log(videoId);
+        //     const videoId = extraerIdentificador( videoUrl );
+        //     console.log(videoId);
 
-            const desertRef = ref( storage, videoId );
-            await deleteObject( desertRef );
+        //     const desertRef = ref( storage, videoId );
+        //     await deleteObject( desertRef );
+
+        // };
+
+        if ( ud.videoUrls.length > 0 ) {
+            ud.videoUrls.map( async( videoUrl ) => {
+
+                let videoId = [];
+                videoId = extraerIdentificador( videoUrl );
+                console.log(videoId);
+                const desertRef = ref( storage, videoId );
+                await deleteObject( desertRef );
+            });
+
 
         };
 
