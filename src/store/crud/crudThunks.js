@@ -1,8 +1,11 @@
 import { collection, deleteDoc, doc, setDoc } from 'firebase/firestore/lite';
-import { FirebaseDB } from '../../firebase/config';
+import { ref, deleteObject } from 'firebase/storage';
+
+import { FirebaseDB, storage } from '../../firebase/config';
 import { addNewEmptyUd, deleteUdById, savingNewUd, setActiveUd, setSaving, setUds, setVideoToActiveUd, updateUd } from './crudSlice';
 import { loadUds } from '../../helpers/loadUds';
 import { fileUpload } from '../../helpers/fileUpload';
+import { extraerIdentificador } from '../../helpers/idForDetele';
 
 
 export const startNewNote = () => {
@@ -68,12 +71,6 @@ export const startUploadingFile = ( files = [] ) => {
         dispatch( setSaving() );
         
         const videoUrl = await fileUpload( files );
-
-        // const fileUploadPromises = [];
-        // for ( const file of files ) {
-        //     fileUploadPromises.push( fileUpload( file ) );
-        // };
-        // const videosUrl = await Promise.all( fileUploadPromises );
         
         dispatch( setVideoToActiveUd( videoUrl ) );
     };
@@ -89,6 +86,18 @@ export const startDeletingUd = () => {
 
         const docRef = doc( FirebaseDB, `${ uid }/piece/ud/${ ud.id }` );
         await deleteDoc( docRef );
+
+        console.log(ud.videoUrls);
+
+        const videoUrl = ud.videoUrls[0]
+        console.log(videoUrl);
+        
+        const videoId = extraerIdentificador( videoUrl );
+        console.log(videoId);
+
+        const desertRef = ref( storage, videoId );
+        await deleteObject( desertRef );
+        
 
         dispatch( deleteUdById( ud.id ) );
     };
