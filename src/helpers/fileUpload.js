@@ -8,9 +8,14 @@ export const fileUpload = async( file ) => {
 
     let uuid = self.crypto.randomUUID();
     const storageRef = ref( storage, uuid );
+    // const metadata = {
+    //     contentType: 'image/jpeg',
+    //   };
     
     try {
+        
         const resp = await uploadBytes( storageRef, file );
+        console.log(file);
         console.log(resp);
         console.log(storageRef.fullPath);
         const url = await getDownloadURL( storageRef );

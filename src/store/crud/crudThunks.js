@@ -8,6 +8,7 @@ import { fileUpload } from '../../helpers/fileUpload';
 import { extraerIdentificador } from '../../helpers/idForDetele';
 
 
+
 export const startNewNote = () => {
     return async( dispatch, getState ) => {
         
@@ -34,6 +35,7 @@ export const startNewNote = () => {
 
 
 
+
 export const startLoadingUds = () => {
     return async( dispatch, getState ) => {
         const { uid } = getState().auth;
@@ -43,6 +45,7 @@ export const startLoadingUds = () => {
         dispatch( setUds( uds ) );
     };
 };
+
 
 
 
@@ -66,15 +69,18 @@ export const startSaveUd = () => {
 
 
 
+
 export const startUploadingFile = ( files = [] ) => {
     return async( dispatch ) => {
         dispatch( setSaving() );
         
-        const videoUrl = await fileUpload( files );
+        console.log(files);
+        const videoUrl = await fileUpload( files[0] );
         
         dispatch( setVideoToActiveUd( videoUrl ) );
     };
 };
+
 
 
 
@@ -87,18 +93,22 @@ export const startDeletingUd = () => {
         const docRef = doc( FirebaseDB, `${ uid }/piece/ud/${ ud.id }` );
         await deleteDoc( docRef );
 
+        dispatch( deleteUdById( ud.id ) );
+
         console.log(ud.videoUrls);
 
-        const videoUrl = ud.videoUrls[0]
-        console.log(videoUrl);
-        
-        const videoId = extraerIdentificador( videoUrl );
-        console.log(videoId);
+        // Borra el archivo subido al storaje, si se ha cargado previamnete
+        if ( ud.videoUrls[0] ) {
+            const videoUrl = ud.videoUrls[0]
+            console.log(videoUrl);
+            
+            const videoId = extraerIdentificador( videoUrl );
+            console.log(videoId);
 
-        const desertRef = ref( storage, videoId );
-        await deleteObject( desertRef );
-        
+            const desertRef = ref( storage, videoId );
+            await deleteObject( desertRef );
 
-        dispatch( deleteUdById( ud.id ) );
+        };
+
     };
 };
